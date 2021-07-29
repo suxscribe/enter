@@ -1,0 +1,100 @@
+.festivals {
+  @include block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include round-block();
+  background-color: $color-gray-2;
+
+  @media (min-width: $breakpoint-medium) {
+    border-bottom-right-radius: percent-view(188px);
+  }
+
+  &__title {
+    @include font-h1;
+
+    margin-bottom: responsive-value(68px, 192px);
+  }
+
+  &__description {
+    grid-row-start: 2;
+    display: flex;
+    align-items: flex-end;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-row-start: 1;
+    }
+  }
+
+  &__awards {
+    display: grid;
+    gap: responsive-value(25px, 50px);
+    grid-template-columns: 1fr;
+    justify-content: start;
+    width: 100%;
+
+    margin-bottom: 63px;
+
+    @media (min-width: $breakpoint-medium) {
+      width: auto;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+      justify-content: flex-end;
+      overflow-x: visible;
+
+      margin-bottom: 0;
+    }
+
+    &-item {
+      flex: 0 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media (min-width: $breakpoint-medium) {
+        display: block;
+      }
+
+      &-title {
+        color: rgba(0, 0, 0, 0.5);
+        flex: 1 0 0 auto;
+
+        @media (min-width: $breakpoint-medium) {
+          margin-bottom: percent-view(78px);
+        }
+
+        & span {
+          color: rgba(0, 0, 0, 1);
+          margin-right: 8px;
+        }
+      }
+
+      &-image {
+        $awards-item-size: responsive-value(108px, 335px);
+        border-radius: 50%;
+        overflow: hidden;
+        width: $awards-item-size;
+        max-width: 100%;
+        // height: $awards-item-size;
+
+        @media (min-width: $breakpoint-medium) {
+        }
+
+        & img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__grid-bottom {
+    display: grid;
+    gap: $grid-gap;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+    }
+  }
+}

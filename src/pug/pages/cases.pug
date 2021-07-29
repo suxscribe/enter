@@ -1,0 +1,32 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Enter';
+  - var description = 'Description';
+  - var pageClass = 'page--index';
+
+block content
+  .container
+    section.header
+      +header-bg()
+      .header__top
+        .header__logo
+          a(href="index.html").header__logo-link.header__logo-link--full
+            img(src="assets/logo-full.svg", alt="EnterAgency")
+        h1.header__title Творческие идеи рекламных кампаний, креативные макеты, копирайтинг, сценарии видео и&nbsp;аудио
+        +burger()
+
+      .header__bottom.header__bottom--cases
+        .header__bottom-title кейсы
+        .header__sections
+          a(href="").header__sections-item.button.button--medium All 
+          a(href="").header__sections-item.button.button--medium.button--active Creative 
+          a(href="").header__sections-item.button.button--medium Design
+          a(href="").header__sections-item.button.button--medium Digital
+          a(href="").header__sections-item.button.button--medium Video
+
+    section.cases
+      +cases-teaser({name: 'Саксэс'})
+      +cases-teaser({name: 'Саксэс'})
+      +cases-teaser({name: 'Саксэс'})
+      +cases-teaser({name: 'Саксэс'})

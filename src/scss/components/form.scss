@@ -1,0 +1,308 @@
+$input-height: responsive-value(96px, 160px);
+$input-padding: responsive-value(16px, 40px);
+
+.form {
+  &__wrap {
+    max-height: 1500px;
+    opacity: 1;
+    overflow: hidden;
+    transition: all var(--transition);
+
+    .form.sent & {
+      //wpcf7
+      max-height: 0;
+      opacity: 0;
+    }
+  }
+
+  &__row {
+    display: block;
+    margin-bottom: responsive-value(12px, 24px);
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-input {
+      // padding: 0 $input-padding responsive-value(20px, 40px); //responsive-value(32px, 64px)
+      // background: $color-gray-2;
+      // border-radius: $button-border-radius;
+    }
+  }
+
+  &__grid {
+    // grid-template-areas: 'column1 column2';
+    position: relative;
+    margin-bottom: 24px;
+
+    @media (min-width: $breakpoint-small) {
+      margin-bottom: 48px;
+    }
+    @media (min-width: $breakpoint-medium) {
+      margin-bottom: 40px;
+    }
+
+    & > * {
+      @media (min-width: $breakpoint-medium) {
+        width: calc(50% - #{$column-margin} / 2);
+      }
+    }
+
+    &-column-2 {
+      @media (min-width: $breakpoint-medium) {
+        right: 0;
+        top: 0;
+        position: absolute;
+      }
+    }
+  }
+
+  &__label {
+    display: block;
+    // transform: translateY(-#{$input-height * 1.5});
+    top: responsive-value(12px, 29px);
+    margin-left: $input-padding;
+    position: absolute;
+    // top: percent-view(0px);
+    pointer-events: none;
+    @include font-body;
+    transition: all var(--transition);
+    color: rgba($color-gray, 0.6);
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    @include font-h2;
+    font-family: $font-family;
+
+    // height: $input-height;
+    vertical-align: middle;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid transparent;
+    background: $color-gray-2;
+    border-radius: $input-border-radius;
+
+    // background-color: transparent;
+    color: $color-black;
+    box-sizing: border-box;
+    box-shadow: none;
+    appearance: none;
+
+    // padding-top: responsive-value(40px, 72px);
+    padding: responsive-value(40px, 72px) $input-padding
+      responsive-value(20px, 40px);
+
+    transition: var(--transition);
+    transition-property: all;
+    transition-property: color, background-color, border;
+
+    &:focus,
+    &:hover {
+      // background-color: $color-white;
+      // color: $color-gray;
+      // border-color: rgba($color-gray, 0.8);
+      outline: 0px solid transparent;
+      border-color: rgba(67, 64, 71, 0.4);
+    }
+
+    &:required {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &.invalid {
+      border-color: $color-error;
+    }
+  }
+  &__select {
+    padding-top: 0;
+    appearance: none;
+    background-image: $chevron-down;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 32px) center;
+    background-size: 16px 9px;
+  }
+  &__textarea {
+    height: 180px;
+    padding-top: $input-height / 2;
+
+    @media (min-width: $breakpoint-small) {
+      height: auto;
+      min-height: 180px;
+    }
+  }
+
+  &__note,
+  .validation-error {
+    @include font-small;
+    position: absolute;
+    // margin-top: 0.5rem;
+
+    // margin-bottom: -0.5rem;
+    bottom: responsive-value(4px, 8px);
+    left: $input-padding;
+    color: var(--color-error);
+  }
+
+  &__note {
+    color: var(--color-muted);
+  }
+
+  &__controls {
+    flex: 1 1 auto;
+  }
+
+  &__file {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-button {
+      flex: 0 0 auto;
+      width: responsive-value(48px, 52px);
+      height: responsive-value(48px, 52px);
+      border: none;
+      background-color: $color-white;
+      border-radius: 50%;
+      padding: 8px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-green;
+
+        & svg {
+          stroke: #fff;
+        }
+      }
+
+      & svg {
+        stroke: $color-black;
+      }
+    }
+    &-name {
+      flex: 1 1 auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: responsive-value(48px, 52px);
+      line-height: responsive-value(48px, 52px);
+      display: inline-block;
+      background-color: $color-white;
+      padding: 0 20px;
+      border-radius: responsive-value(48px, 52px);
+      margin-right: 20px;
+      color: $color-gray;
+    }
+  }
+
+  &__submit {
+    // align-items: center;
+    appearance: none;
+    gap: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint-small) {
+      flex-direction: row;
+      gap: 54px;
+    }
+  }
+  &__submit-button {
+    border: 1px solid $color-black;
+    height: responsive-value(84px, 168px);
+    cursor: pointer;
+    font-family: $font-family;
+    @include font-h2;
+
+    flex: 0 0 auto;
+    // margin-bottom: 28px;
+    width: 100%;
+
+    @media (min-width: $breakpoint-medium) {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: $color-green;
+      border-color: $color-black;
+    }
+  }
+  &__submit-note {
+    margin-top: responsive-value(11px, 22px);
+    @include font-small;
+    text-align: center;
+
+    color: $color-gray;
+    // text-align: center;
+  }
+
+  .validation-error + &__note {
+    display: none;
+  }
+}
+
+.input-sizer {
+  display: inline-grid;
+  vertical-align: top;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  &.stacked {
+    align-items: stretch;
+
+    &::after,
+    input,
+    textarea,
+    span {
+      grid-area: 2 / 1;
+    }
+  }
+
+  &::after,
+  input,
+  textarea,
+  span {
+    width: auto;
+    min-width: 1em;
+    grid-area: 1 / 2;
+    resize: none;
+  }
+
+  &::after {
+    @include font-h2;
+    padding: responsive-value(40px, 72px) $input-padding
+      responsive-value(84px, 108px);
+
+    content: attr(data-value) ' ';
+    visibility: hidden;
+    white-space: pre-wrap;
+  }
+}
+
+.wpcf7-response-output {
+  opacity: 0;
+  transition: all var(--transition);
+  border-radius: $button-border-radius;
+  height: $button-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-gray-2;
+  @include font-h2;
+
+  .wpcf7 form.sent & {
+    opacity: 1;
+    border-color: transparent !important;
+  }
+  .wpcf7 form.invalid & {
+    display: none;
+  }
+}

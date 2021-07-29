@@ -1,0 +1,67 @@
+.button {
+  display: block;
+  color: $color-black;
+  border-radius: $button-border-radius;
+  text-align: center;
+  transition: all var(--transition);
+  background-color: $color-white;
+
+  @media (min-width: $breakpoint-small) {
+  }
+
+  &:hover {
+    border-color: transparent;
+    background-color: $color-white;
+    color: $color-green;
+  }
+
+  &--small {
+    line-height: $button-s-height;
+    padding: 0 $button-border-radius;
+  }
+
+  &--border {
+    border: 1px solid $color-black;
+
+    &:hover {
+      border-color: $color-black;
+    }
+  }
+
+  &--medium {
+    $button-m-height: responsive-value(64px, 87px);
+    @include font-h2;
+
+    line-height: $button-m-height;
+    padding: 0 responsive-value(24px, 48px);
+    border-radius: $button-m-height;
+
+    @media (min-width: $breakpoint-small) {
+      line-height: $button-m-height;
+    }
+  }
+
+  &--large {
+    $button-height: responsive-value(152px, 168px);
+    @include font-h2;
+    line-height: $button-height;
+    white-space: nowrap;
+
+    @media (min-width: $breakpoint-small) {
+      line-height: $button-height;
+    }
+  }
+
+  &--grey {
+    background-color: $color-gray-2;
+
+    &:hover {
+      background-color: $color-gray-2;
+    }
+  }
+
+  &--active {
+    background-color: transparent;
+    border: 1px solid $color-black;
+  }
+}

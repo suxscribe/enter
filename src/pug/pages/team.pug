@@ -1,0 +1,56 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Enter';
+  - var description = 'Description';
+  - var pageClass = 'page--team';
+
+block content
+  .container
+    section.header
+      +header-bg()
+      .header__top
+        .header__logo
+          a(href="index.html").header__logo-link.header__logo-link--full
+            img(src="assets/logo-full.svg", alt="EnterAgency")
+        h1.header__title Enter&nbsp;&mdash; это ваш входной билет в&nbsp;мир креатива, дизайна, диджитала и&nbsp;видео. Имеется спорная точка зрения, гласящая примерно следующее.
+        +burger()
+
+      .header__bottom.header__bottom--team
+        .header__bottom-title команда
+        .header__bottom-text Задача организации, в&nbsp;особенности&nbsp;же постоянный количественный рост и&nbsp;сфера нашей активности предполагает независимые способы реализации соответствующих условий активизации. Значимость этих проблем настолько очевидна, что понимание сути ресурсосберегающих технологий позволяет оценить значение вывода текущих активов.
+
+    section.team
+      img(src="assets/team-01.png", alt="")
+
+    section.team-digital
+      .team-digital__sections
+        a(href="").team-digital__sections-item.button.button--grey.button--medium.button--active Creative 
+        a(href="").team-digital__sections-item.button.button--grey.button--medium Design
+        a(href="").team-digital__sections-item.button.button--grey.button--medium Digital
+        a(href="").team-digital__sections-item.button.button--grey.button--medium Video
+      .team-digital__content Задача организации, в&nbsp;особенности&nbsp;же постоянный количественный рост и&nbsp;сфера нашей активности предполагает независимые способы реализации соответствующих условий активизации.
+      .team-digital__bottom 
+        a(href="").button.button--large.button--border Что еще за диджитал? 
+
+    section.about.about--2
+      .about__grid
+        .about__logo
+            a(href="").header__logo-link
+              img(src="assets/logo.svg", alt="EnterAgency")
+        .about__title К&nbsp;любому проекту с&nbsp;любовью и&nbsp;вниманием, поэтому нам доверяют
+        .about__description
+          a(href="presendation.pdf").header__presentation-link
+            +svg({name: 'pdf'})
+            span презентация агентства
+        .about__clients
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+
+    +festivals()

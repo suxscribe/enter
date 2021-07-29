@@ -1,0 +1,65 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Enter';
+  - var description = 'Description';
+  - var pageClass = 'page--index';
+
+block content
+  .container
+    section.header
+      +header-bg()
+      .header__top
+        .header__logo
+          a(href="index.html").header__logo-link
+            img(src="assets/logo.svg", alt="EnterAgency")
+        h1.header__title Создание креативных проектов, графического контента, решений в&nbsp;digital-пространстве, продакшен и&nbsp;постпродакшен.
+        +burger()
+
+      .header__bottom
+        .header__bottom-logo
+          img(src="assets/bottom-logo.svg", alt="").header__bottom-logo-img
+        .header__presentation
+          a(href="presendation.pdf").header__presentation-link
+            +svg({name: 'pdf'})
+            span презентация агентства
+        .header__contact
+          a(href="#feedback", uk-scroll).header__contact-link
+            span стать клиентом 
+            +svg({name: 'telegram'})
+    section.sections
+      +sections-item()
+      +sections-item()
+      +sections-item()
+      +sections-item()
+    section.about
+      .about__grid
+        .about__logo
+            a(href="").header__logo-link
+              img(src="assets/logo.svg", alt="EnterAgency")
+        .about__title К&nbsp;любому проекту с&nbsp;любовью и&nbsp;вниманием, поэтому нам доверяют
+        .about__description Об агентстве
+        .about__clients
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
+    section.case-slider
+      .case-slider__container.swiper-container
+        ul.swiper-wrapper
+          +cases-slide({name: 'Скасэс'})
+          +cases-slide({name: 'Слайд 2'})
+          +cases-slide({name: 'Слайд 3'})
+      .case-slider__pagination.swiper-pagination
+      a.case-slider__link.button.button--small(href="") Все кейсы
+
+    section.case-small
+      .case-small__items
+        +cases-small-teaser({name: 'Слайд 3'})
+        +cases-small-teaser({name: 'Слайд 3'})
+        +cases-small-teaser({name: 'Слайд 3'})
+      a.case-small__link.button.button--border(href="") все кейсы
+
+    +festivals()
+
+

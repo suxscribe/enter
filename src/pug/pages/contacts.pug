@@ -1,0 +1,26 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Enter';
+  - var description = 'Description';
+  - var pageClass = 'page--contacts';
+
+block content
+  .container
+    section.header
+      +header-bg()
+      .header__top.header__top--contacts
+        .header__logo
+          a(href="index.html").header__logo-link.header__logo-link--full
+            img(src="assets/logo-full.svg", alt="EnterAgency")
+        h1.header__title
+          a(href="mailto:privet@enteragency.ru") privet@enteragency.ru
+        .header__phones 
+          a(href="") +7 (831) 230-29-90 
+          a(href="") +7 (499) 213-02-14 
+        +burger()
+
+      .header__bottom.header__bottom--contacts
+        a(href="").header__bottom-link смотреть на карте 
+          +svg({name: 'location'})
+        .header__botton-address 603000, Россия, Нижний Новгород, ул. Грузинская 37А 

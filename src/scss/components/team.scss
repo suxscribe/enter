@@ -1,0 +1,45 @@
+.team {
+  @include block;
+  border-radius: $border-radius;
+  overflow: hidden;
+  padding: 0;
+
+  &-digital {
+    @include block;
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: $grid-gap;
+    grid-template-rows: auto;
+
+    &__sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: responsive-value(8px, 16px);
+      margin-bottom: responsive-value(71px, 142px);
+
+      grid-column: 1 / -1;
+
+      &-item {
+        flex: 1 0 40%;
+
+        @media (min-width: $breakpoint-medium) {
+          flex: 0 0 auto;
+        }
+      }
+    }
+
+    &__content {
+      margin-bottom: responsive-value(45px, 91px);
+      grid-column: 1 / -1;
+      @include font-h1;
+
+      @media (min-width: $breakpoint-medium) {
+        grid-column: 3 / -1;
+      }
+    }
+    &__bottom {
+      grid-column: 1 / -1;
+    }
+  }
+}

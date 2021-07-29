@@ -1,0 +1,66 @@
+.feedback {
+  @include block;
+
+  margin-bottom: 130px;
+  margin-top: 117px;
+
+  @media (min-width: $breakpoint-medium) {
+    margin-bottom: 0;
+    margin-top: responsive-value(40px, 80px);
+  }
+
+  &__top {
+    margin-bottom: responsive-value(56px, 94px);
+  }
+
+  &__title {
+    @include font-h1;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $grid-gap;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+    }
+  }
+
+  &__out {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+
+    bottom: -80px;
+
+    @media (min-width: $breakpoint-medium) {
+      bottom: auto;
+      right: auto;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: $breakpoint-medium) {
+        justify-content: start;
+      }
+
+      &:hover {
+        & svg {
+          stroke: $color-green;
+        }
+      }
+      & svg {
+        width: 24px;
+        height: 24px;
+        margin-left: 16px;
+        stroke: $color-black;
+        transition: var(--transition);
+      }
+    }
+  }
+}
