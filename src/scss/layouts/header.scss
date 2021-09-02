@@ -185,11 +185,17 @@
       @media (min-width: $breakpoint-medium) {
         margin-bottom: 0;
       }
-
+      &:hover {
+        & svg {
+          stroke: $color-green;
+        }
+      }
       & svg {
         width: 24px;
         height: 24px;
         margin-left: responsive-value(3px, 14px);
+        stroke: #434047;
+        transition: stroke var(--transition);
       }
     }
   }
@@ -532,6 +538,7 @@
   &__sections {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     grid-column: 1 / -1;
     justify-content: space-between;
     align-items: flex-end;

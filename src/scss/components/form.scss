@@ -173,6 +173,7 @@ $input-padding: responsive-value(16px, 40px);
       border-radius: 50%;
       padding: 8px;
       cursor: pointer;
+      transition: background-color var(--transition);
 
       &:hover {
         background-color: $color-green;
@@ -184,6 +185,7 @@ $input-padding: responsive-value(16px, 40px);
 
       & svg {
         stroke: $color-black;
+        transition: stroke var(--transition);
       }
     }
     &-name {
@@ -263,6 +265,7 @@ $input-padding: responsive-value(16px, 40px);
     textarea,
     span {
       grid-area: 2 / 1;
+      width: 100%;
     }
   }
 

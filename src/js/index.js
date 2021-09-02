@@ -1,12 +1,5 @@
 import UIkit from 'uikit';
 import Icons from 'uikit/dist/js/uikit-icons';
-import Swiper, {
-  Navigation,
-  Pagination,
-  EffectFade,
-  Keyboard,
-  Controller,
-} from 'swiper';
 
 import { variables } from './components/variables';
 
@@ -14,8 +7,6 @@ import { teaserHover, formFileInput, burgerToggle } from './components/helpers';
 import { casesSlider } from './components/swiper';
 import { validateForms } from './components/forms';
 import { sectionHover } from './components/section-hover';
-
-Swiper.use([Navigation, Pagination, EffectFade, Keyboard, Controller]);
 
 window.UIkit = UIkit; // fix not difined bug
 
@@ -56,4 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // HOVER
   sectionHover();
+
+  // show preview video when hovering over the case teaser
+  document.querySelectorAll('.cases__item').forEach((item) => {
+    const video = item.querySelector('video');
+    if (video) {
+      item.addEventListener('mouseenter', () => {
+        item.querySelector('img').style.opacity = 0;
+        video.currentTime = 0;
+        video.play();
+      });
+      item.addEventListener('mouseleave', () => {
+        item.querySelector('img').style.opacity = 1;
+        setTimeout(function() {
+          item.querySelector('video').pause();
+        }, 500); //pause only after the video is hidden by image
+      });
+    }
+  });
 });

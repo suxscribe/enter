@@ -35,12 +35,6 @@ export const sectionHover = () => {
       active = true;
     });
   });
-  // $('.sections__item-bg').mouseenter(function(e) {
-  //   gsap.to(this, 0.3, { scale: 1.05 }); //scale trigger element
-  //   gsap.to(ball, 0.3, { scale: 3.3 }); //scale ball
-  //   gsap.to(ball, 0.3, { borderWidth: '.5px' });
-  //   active = true;
-  // });
 
   document.querySelectorAll('.sections__item-bg').forEach((el) => {
     el.addEventListener('mouseleave', () => {
@@ -52,13 +46,6 @@ export const sectionHover = () => {
       active = false;
     });
   });
-  // $('.sections__item-bg').mouseleave(function(e) {
-  //   gsap.to(this, 0.3, { scale: 1 });
-  //   gsap.to(ball, 0.3, { scale: 1 });
-  //   gsap.to(this.querySelector('.sections__item-bg-img'), 0.3, { x: 0, y: 0 });
-  //   gsap.to(ball, 0.3, { borderWidth: '1px' });
-  //   active = false;
-  // });
 
   document.querySelectorAll('.sections__item-bg').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
@@ -66,11 +53,6 @@ export const sectionHover = () => {
       callParallax(e, el);
     });
   });
-
-  // $('.sections__item-bg').mousemove(function(e) {
-  //   parallaxCursor(e, this, 1); //magnetic ball = low number is more attractive
-  //   callParallax(e, this);
-  // });
 
   function callParallax(e, parent) {
     parallaxIt(e, parent, parent.querySelector('.sections__item-bg-img'), 85); //magnetic area = higher number is more attractive

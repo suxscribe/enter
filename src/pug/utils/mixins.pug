@@ -14,10 +14,11 @@ mixin sections-item(args)
       p креативные макеты
 
 mixin cases-slide(args)
-  li.case-slider__item.swiper-slide
+  li.case-slider__item.swiper-slide(data-preview='assets/sections-teaser-01.jpg')
     a.case-slider__item-link
       .case-slider__item-bg
-        img(src="assets/sections-teaser-01.jpg", alt="")
+        //- img(src="assets/sections-teaser-01.jpg", alt="")
+        video(src="assets/bg.mp4", loop="loop", playsinline="playsinline", muted="muted") 
       .case-slider__item-content
         .case-slider__item-client= args.name
         .case-slider__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
@@ -34,6 +35,7 @@ mixin cases-teaser(args)
   a.cases__item(href="")
     .cases__item-bg
       img(src="assets/sections-teaser-01.jpg", alt="")
+      video(src="assets/bg.mp4")
     .cases__item-content
       span.cases__item-client= args.name+', '
       span.cases__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
