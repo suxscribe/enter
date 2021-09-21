@@ -10,9 +10,10 @@ block content
     section.header
       +header-bg()
       .header__top
-        .header__logo
-          a(href="index.html").header__logo-link
-            img(src="assets/logo.svg", alt="EnterAgency")
+        +header-logo({class: '', logo: 'logo.svg'})
+        //- .header__logo
+        //-   a(href="index.html").header__logo-link
+        //-     img(src="assets/logo.svg", alt="EnterAgency")
         h1.header__title Создание креативных проектов, графического контента, решений в&nbsp;digital-пространстве, продакшен и&nbsp;постпродакшен.
         +burger()
 

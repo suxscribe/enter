@@ -11,10 +11,33 @@
     border-bottom-right-radius: percent-view(188px);
   }
 
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $grid-gap;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+
+    @media (min-width: $breakpoint-medium) {
+      grid-column: 1 / 2;
+    }
+  }
+
   &__title {
     @include font-h1;
 
+    grid-column: 1 / -1;
     margin-bottom: responsive-value(68px, 192px);
+
+    @media (min-width: $breakpoint-medium) {
+      grid-column: 3 / -1;
+    }
   }
 
   &__description {

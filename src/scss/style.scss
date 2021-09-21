@@ -5,11 +5,11 @@
 @import 'abstract/variables'; //base vars and styles
 
 // 2. Import default variables and available mixins.
-// @import "uikit/src/scss/variables-theme.scss";
+// @import 'uikit/src/scss/variables-theme.scss';
 
 // @import 'uikit/src/scss/mixins-theme.scss';
 
-@import './uikit/variables-theme'; // UIKIT another variables
+// @import './uikit/variables-theme'; // UIKIT another variables
 
 // 4. Import UIkit.
 // @import "theme/_import.scss";
@@ -20,11 +20,11 @@
 
 // VARIABLES redefine
 
-$dropdown-margin: 0;
-$offcanvas-bar-background: #fff;
+// $dropdown-margin: 0;
+// $offcanvas-bar-background: #fff;
 
-@import 'uikit/src/scss/components/mixin.scss';
-@import 'uikit/src/scss/components/base.scss';
+// @import 'uikit/src/scss/components/mixin.scss';
+// @import 'uikit/src/scss/components/base.scss';
 
 // Elements
 // @import 'uikit/src/scss/components/link.scss';
@@ -44,7 +44,7 @@ $offcanvas-bar-background: #fff;
 // @import 'uikit/src/scss/components/section.scss';
 // @import 'uikit/src/scss/components/container.scss';
 
-@import 'uikit/src/scss/components/grid.scss';
+// @import 'uikit/src/scss/components/grid.scss';
 // @import 'uikit/src/scss/components/tile.scss';
 // @import 'uikit/src/scss/components/card.scss';
 
@@ -82,15 +82,15 @@ $offcanvas-bar-background: #fff;
 // JavaScript
 // @import 'uikit/src/scss/components/accordion.scss';
 
-@import 'uikit/src/scss/components/drop.scss'; // After: Card
-@import 'uikit/src/scss/components/dropdown.scss'; // After: Card
-@import 'uikit/src/scss/components/modal.scss'; // After: Close
-@import 'uikit/src/scss/components/lightbox.scss'; // After: Close
-@import 'uikit/src/scss/components/slideshow.scss';
-@import 'uikit/src/scss/components/slider.scss';
-@import 'uikit/src/scss/components/sticky.scss';
-@import 'uikit/src/scss/components/offcanvas.scss';
-@import 'uikit/src/scss/components/switcher.scss';
+// @import 'uikit/src/scss/components/drop.scss'; // After: Card
+// @import 'uikit/src/scss/components/dropdown.scss'; // After: Card
+// @import 'uikit/src/scss/components/modal.scss'; // After: Close
+// @import 'uikit/src/scss/components/lightbox.scss'; // After: Close
+// @import 'uikit/src/scss/components/slideshow.scss';
+// @import 'uikit/src/scss/components/slider.scss';
+// @import 'uikit/src/scss/components/sticky.scss';
+// @import 'uikit/src/scss/components/offcanvas.scss';
+// @import 'uikit/src/scss/components/switcher.scss';
 
 // @import 'uikit/src/scss/components/leader.scss';
 // Scrollspy
@@ -108,7 +108,7 @@ $offcanvas-bar-background: #fff;
 
 // Utilities
 // @import 'uikit/src/scss/components/animation.scss';
-@import 'uikit/src/scss/components/width.scss';
+// @import 'uikit/src/scss/components/width.scss';
 // @import 'uikit/src/scss/components/height.scss';
 // @import 'uikit/src/scss/components/text.scss';
 // @import 'uikit/src/scss/components/column.scss';
@@ -128,31 +128,13 @@ $offcanvas-bar-background: #fff;
 // Need to be loaded last
 // @import 'uikit/src/scss/components/print.scss';
 
-// //////////////////////////////////////////////////////
-
-/* Desktop and bigger */
-@media (max-width: $breakpoint-small - 1) {
-  /* Horizontal */
-  .uk-grid {
-    margin-left: (-$grid-small-gutter-horizontal);
-  }
-  .uk-grid > * {
-    padding-left: $grid-small-gutter-horizontal;
-  }
-
-  /* Vertical */
-  .uk-grid + .uk-grid,
-  .uk-grid > .uk-grid-margin,
-  * + .uk-grid-margin {
-    margin-top: $grid-small-gutter-vertical;
-  }
-}
-
 ////////////////////////////////////////////////////////
 @import 'swiper/swiper.scss';
 @import 'swiper/components/effect-fade/effect-fade.scss';
 // @import '/node_modules/simplebar/dist/simplebar.css'; // Can't import css
 // @import '/node_modules/choices.js/public/assets/styles/choices.min.css';
+
+@import 'aos/src/sass/aos.scss';
 
 @import 'base/base';
 @import 'base/fonts';
@@ -163,7 +145,7 @@ $offcanvas-bar-background: #fff;
 @import 'layouts/page';
 @import 'layouts/footer';
 
-@import 'components/offcanvas';
+// @import 'components/offcanvas';
 @import 'components/sections';
 @import 'components/about';
 @import 'components/case-slider';
@@ -176,5 +158,6 @@ $offcanvas-bar-background: #fff;
 @import 'components/cases';
 @import 'components/team';
 @import 'components/contacts';
+@import 'components/case';
 
 @import 'pages/index';

@@ -10,9 +10,7 @@ block content
     section.header.header--case
       +header-bg()
       .header__top
-        .header__logo
-          a(href="index.html").header__logo-link.header__logo-link--full
-            img(src="assets/logo-full.svg", alt="EnterAgency")
+        +header-logo({class: 'header__logo-link--full', logo: 'logo-full.svg'})
         +burger()
 
   section.case

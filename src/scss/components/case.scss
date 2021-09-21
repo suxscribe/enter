@@ -1,0 +1,19 @@
+.case {
+  &__first-image {
+  }
+
+  &__title {
+    &-block {
+      margin: $block-margin 0;
+      max-width: $content-max-width;
+    }
+
+    &-sections {
+      margin-bottom: $block-margin;
+    }
+  }
+
+  &__content {
+    margin-bottom: responsive-value(96px, 192px);
+  }
+}

@@ -107,3 +107,9 @@ $input-border-radius: responsive-value(18px, 32px);
 $chevron-down: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 15.6 8.5' style='enable-background:new 0 0 15.6 8.5;' xml:space='preserve'%3E%3Cpolygon points='15.6,0.7 14.8,0 7.8,7.1 0.7,0 0,0.7 7.1,7.8 7.1,7.8 7.8,8.5 7.8,8.5 7.8,8.5 8.5,7.8 8.5,7.8 '/%3E%3C/svg%3E%0A");
 
 $content-paragraph-margin: percent-view(32px);
+$content-max-width: 800px;
+
+$base-list-padding-left: 30px !default;
+
+$offcanvas-bar-width-m: 400px;
+$offcanvas-bar-width: 300px;

@@ -4,7 +4,6 @@
 
   font-size: $mobile-base-size;
   line-height: 1.2;
-  font-weight: 400;
   letter-spacing: -0.01em;
 
   @media (min-width: $breakpoint-small) {
@@ -26,7 +25,6 @@
 
   font-size: $mobile-base-size;
   line-height: 1.15;
-  font-weight: 400;
   letter-spacing: -0.01em;
 
   @media (min-width: $breakpoint-small) {
@@ -42,12 +40,11 @@
 }
 
 @mixin font-h3 {
-  $fhd-base-size: 2.3 * $base-font-size;
+  $fhd-base-size: 3 * $base-font-size;
   $tablet-base-size: $fhd-base-size * 0.7;
 
   font-size: 1.7rem;
   line-height: 1.48;
-  font-weight: 600;
   letter-spacing: 0.01em;
 
   @media (min-width: $breakpoint-small) {

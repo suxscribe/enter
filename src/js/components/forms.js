@@ -1,7 +1,9 @@
 import Inputmask from 'inputmask';
 
 export const validateForms = () => {
-  Inputmask().mask(document.querySelectorAll('input'));
+  Inputmask({ mask: '+7 999 999 99 99', placeholder: ' ' }).mask(
+    document.querySelectorAll('.form__phone')
+  );
   // validate forms
   var contactForm = document.querySelectorAll('.form');
 
@@ -100,13 +102,18 @@ export const validateForms = () => {
     const setInvalid = (field, message) => {
       // toggle invalid class and show invalid message
       field.classList.add('invalid');
-      // field.nextElementSibling.innerHTML = message; // dont show message
-      field.nextElementSibling.className = 'form__note form__note--red';
+      if (field.nextElementSibling) {
+        // field.nextElementSibling.innerHTML = message; // dont show message
+        field.nextElementSibling.className = 'form__note form__note--red';
+      }
     };
     const setValid = (field) => {
       field.classList.remove('invalid');
-      field.nextElementSibling.innerHTML = '';
-      field.nextElementSibling.className = 'form__note';
+      if (field.nextElementSibling) {
+        field.nextElementSibling.innerHTML = '';
+
+        field.nextElementSibling.className = 'form__note';
+      }
     };
 
     const checkIfOnlyLetters = (field) => {

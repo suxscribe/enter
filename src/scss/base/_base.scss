@@ -98,4 +98,17 @@ ul {
   & > section:last-child {
     margin-bottom: 0;
   }
+
+  &--case-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+a,
+input,
+button {
+  -webkit-tap-highlight-color: transparent;
 }

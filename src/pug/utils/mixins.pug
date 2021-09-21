@@ -18,7 +18,7 @@ mixin cases-slide(args)
     a.case-slider__item-link
       .case-slider__item-bg
         //- img(src="assets/sections-teaser-01.jpg", alt="")
-        video(src="assets/bg.mp4", loop="loop", playsinline="playsinline", muted="muted") 
+        video(src="assets/video.mp4", loop="loop", playsinline="playsinline", muted="muted") 
       .case-slider__item-content
         .case-slider__item-client= args.name
         .case-slider__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
@@ -34,8 +34,9 @@ mixin cases-small-teaser(args)
 mixin cases-teaser(args)
   a.cases__item(href="")
     .cases__item-bg
-      img(src="assets/sections-teaser-01.jpg", alt="")
-      video(src="assets/bg.mp4")
+      img.cases__item-preview(src="assets/sections-teaser-01.jpg", alt="")
+      //- video.cases__item-preview-hover(src="assets/bg.mp4")
+      img.cases__item-preview-hover(src="assets/sections-teaser-02.jpg")
     .cases__item-content
       span.cases__item-client= args.name+', '
       span.cases__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
@@ -54,9 +55,12 @@ mixin form-row(args)
     if args.textarea
       textarea(placeholder=args.placeholder, name=args.name, class=`form__textarea validate--${args.validate}`, oninput="this.parentNode.dataset.value = this.value")
     else
-      input(type="text", placeholder=args.placeholder, name=args.name, class=`validate--${args.validate}`, data-inputmask=args.inputmask, required).form__input
+      input(type="text", placeholder=args.placeholder, name=args.name, class=`validate--${args.validate} form__${args.validate}`, required).form__input
+      
     .form__note
     label.form__label(for=args.name)= args.title
+
+// data-inputmask=args.inputmask,
 
 mixin burger()
   .header__burger 
@@ -77,11 +81,11 @@ mixin burger()
 
 mixin festivals()
   section.festivals 
-    .festivals__grid.uk-grid-collapse(uk-grid)
-      .festivals__logo(class="uk-width-1-4@m")
+    .festivals__grid
+      .festivals__logo
           .header__logo-link
             img(src="assets/festivals.svg", alt="EnterAgency")
-      .festivals__title(class="uk-width-1-2@m") Участвуем в&nbsp;рекламных фестивалях
+      .festivals__title Участвуем в&nbsp;рекламных фестивалях
     .festivals__grid-bottom
       .festivals__description Участвуем редко, но&nbsp;метко.
         br
@@ -99,3 +103,8 @@ mixin header-bg()
       .header__bg-ball.header__bg-ball-1
       .header__bg-ball.header__bg-ball-2
       .header__bg-ball.header__bg-ball-3
+
+mixin header-logo(args)
+  .header__logo
+    a(href="index.html", class=args.class).header__logo-link
+      img(src=`assets/${args.logo}`, alt="EnterAgency")

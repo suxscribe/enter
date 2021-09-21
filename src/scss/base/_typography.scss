@@ -12,7 +12,8 @@ a {
   // text-decoration-color: rgba($color-green, 0.4);
   transition: all var(--transition);
 
-  &:hover {
+  &:hover,
+  &:active {
     text-decoration: none;
     // text-decoration-color: rgba($color-green, 0);
     // text-underline-offset: 0.7em;
@@ -28,7 +29,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 700;
+  font-weight: 400;
   color: $color-black;
 }
 
@@ -36,6 +37,7 @@ h1,
 .uk-h1,
 .h1 {
   @include font-h1;
+  margin-bottom: $block-margin;
 
   & a {
     text-decoration: none;
@@ -46,12 +48,15 @@ h2,
 .uk-h2,
 .h2 {
   @include font-h2;
+  margin-bottom: $block-margin;
 }
 
 h3,
 .uk-h3,
 .h3 {
   @include font-h3;
+
+  margin-bottom: $block-margin;
 }
 
 h4,

@@ -10,9 +10,9 @@
         
       .feedback__right 
         form(action="").form
-          +form-row({name: "form-phone", title: "Телефон", validate: 'phone', placeholder: ' ', inputmask: "'mask': '+7 999-999-99-99'"})
+          +form-row({name: "form-phone", title: "Телефон", validate: 'phone', inputmask: "'mask': '+7 999 999 99 99', 'placeholder': ' '", placeholder: ' '})
           .form__row.form__row-input.input-sizer.stacked
-            textarea.form__textarea.validate--phone(placeholder=' ', name='form-message', oninput='this.parentNode.dataset.value = this.value')
+            textarea.form__textarea.validate--empty(placeholder=' ', name='form-message', oninput='this.parentNode.dataset.value = this.value')
             .form__note
             label.form__label(for='form-message') Напишите все что вы думаете, по делу
             .form__file

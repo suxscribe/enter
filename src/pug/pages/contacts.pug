@@ -10,9 +10,7 @@ block content
     section.header
       +header-bg()
       .header__top.header__top--contacts
-        .header__logo
-          a(href="index.html").header__logo-link.header__logo-link--full
-            img(src="assets/logo-full.svg", alt="EnterAgency")
+        +header-logo({class: 'header__logo-link--full', logo: 'logo-full.svg'})
         h1.header__title
           a(href="mailto:privet@enteragency.ru") privet@enteragency.ru
         .header__phones 

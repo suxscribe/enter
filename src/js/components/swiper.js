@@ -67,22 +67,27 @@ export let casesSlider = () => {
         slideChange: () => {
           const slider = document.querySelector('.case-slider__container');
 
-          const sliderVideos = document.querySelectorAll(
-            '.case-slider__item video'
-          );
-          sliderVideos.forEach((video) => {
-            setTimeout(() => {
-              video.pause();
-              video.currentTime = 0;
-            }, 500);
-          });
           const currentVideo = document
             .querySelectorAll(`.case-slider__item`)
-            [slider.swiper.activeIndex].querySelector(' video');
+            [slider.swiper.activeIndex].querySelector('video');
 
           if (currentVideo) {
             currentVideo.play();
           }
+        },
+        slideChangeTransitionEnd: () => {
+          const sliderVideos = document.querySelectorAll(
+            '.case-slider__item:not(.swiper-slide-active) video'
+          );
+
+          sliderVideos.forEach((video) => {
+            video.pause();
+            video.currentTime = 0;
+          });
+
+          // if (currentVideo) {
+          //   currentVideo.play();
+          // }
         },
       },
       keyboard: true,

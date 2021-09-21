@@ -10,9 +10,7 @@ block content
     section.header
       +header-bg()
       .header__top
-        .header__logo
-          a(href="index.html").header__logo-link.header__logo-link--full
-            img(src="assets/logo-full.svg", alt="EnterAgency")
+        +header-logo({class: 'header__logo-link--full', logo: 'logo-full.svg'})
         h1.header__title Enter&nbsp;&mdash; это ваш входной билет в&nbsp;мир креатива, дизайна, диджитала и&nbsp;видео. Имеется спорная точка зрения, гласящая примерно следующее.
         +burger()
 
