@@ -72,20 +72,18 @@
       flex: 0 0 auto;
       width: 100%;
       display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: space-between;
 
       @media (min-width: $breakpoint-medium) {
-        display: block;
+        // display: block;
+        flex-direction: column;
+        gap: percent-view(78px);
       }
 
       &-title {
         color: rgba(0, 0, 0, 0.5);
         flex: 1 0 0 auto;
-
-        @media (min-width: $breakpoint-medium) {
-          margin-bottom: percent-view(78px);
-        }
 
         & span {
           color: rgba(0, 0, 0, 1);
