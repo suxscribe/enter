@@ -10,25 +10,23 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const autoprefixer = require('autoprefixer');
 
-function generateHtmlPlugins(templateDir) {
-  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-  return templateFiles.map((item) => {
-    const parts = item.split('.');
-    const name = parts[0];
-    const extension = parts[1];
-    return new HtmlWebpackPlugin({
-      filename: `${name}.html`,
-      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
-      // inject: false //don't add js and css to html
-    });
-  });
-}
+// function generateHtmlPlugins(templateDir) {
+//   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+//   return templateFiles.map((item) => {
+//     const parts = item.split('.');
+//     const name = parts[0];
+//     const extension = parts[1];
+//     return new HtmlWebpackPlugin({
+//       filename: `${name}.html`,
+//       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+//       // inject: false //don't add js and css to html
+//     });
+//   });
+// }
 
 const PAGES_DIR = './src/pug/pages/';
-const PAGES = fs
-  .readdirSync(PAGES_DIR)
-  .filter((fileName) => fileName.endsWith('.pug'));
-const htmlPlugins = generateHtmlPlugins('./src/html/views');
+const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
+// const htmlPlugins = generateHtmlPlugins('./src/html/views');
 
 const config = {
   entry: ['./src/js/index.js', './src/scss/style.scss'],
@@ -98,11 +96,11 @@ const config = {
           },
         ],
       },
-      {
-        test: /\.html$/,
-        include: path.resolve(__dirname, 'src/html/includes'),
-        use: ['raw-loader'],
-      },
+      // {
+      //   test: /\.html$/,
+      //   include: path.resolve(__dirname, 'src/html/includes'),
+      //   use: ['raw-loader'],
+      // },
       {
         test: /\.pug$/,
         loader: 'pug-loader',
@@ -143,7 +141,7 @@ const config = {
           filename: `./${page.replace(/\.pug/, '.html')}`,
         })
     ),
-  ].concat(htmlPlugins),
+  ], //.concat(htmlPlugins), // Remove .concat(htmlPlugins)
 };
 
 module.exports = (env, argv) => {
