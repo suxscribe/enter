@@ -1,14 +1,14 @@
 mixin svg(args)
-    svg(viewbox=args.viewbox)&attributes(attributes)
-        use(xlink:href=`#${args.name}`)
+  svg(viewbox=args.viewbox)&attributes(attributes)
+    use(xlink:href=`#${args.name}`)
 
 mixin sections-item(args)
   a.sections__item(href="cases.html")
     .sections__item-bg(data-hover="#FFC486")
-      .sections__item-bg-img 
-        img(src="assets/sections-teaser-01.jpg", alt="")
-    .sections__item-category Video 
-    .sections__item-features 
+      .sections__item-bg-img
+        img(src="assets/sections-teaser-01.jpg" alt="")
+    .sections__item-category() Video 
+    .sections__item-features() 
       p идеи рекламных кампаний
       p вирусный маркетинг
       p креативные макеты
@@ -16,9 +16,11 @@ mixin sections-item(args)
 mixin cases-slide(args)
   li.case-slider__item.swiper-slide(data-preview='assets/sections-teaser-01.jpg')
     a.case-slider__item-link
-      .case-slider__item-bg
-        //- img(src="assets/sections-teaser-01.jpg", alt="")
-        video(src="assets/video.mp4", loop="loop", playsinline="playsinline", muted="muted") 
+      .case-slider__item-bg()
+        if args.image
+          img(src="assets/sections-teaser-01.jpg" alt="")
+        else
+          video(src="assets/video.mp4" playsinline="playsinline" muted="muted") 
       .case-slider__item-content
         .case-slider__item-client= args.name
         .case-slider__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
@@ -26,7 +28,8 @@ mixin cases-slide(args)
 mixin cases-small-teaser(args)
   a.case-small__item(href="")
     .case-small__item-bg
-      img(src="assets/sections-teaser-01.jpg", alt="")
+      //- img(src="assets/sections-teaser-01.jpg" alt="")
+      video(src="assets/video.mp4", autoplay, muted, playsinline) 
     .case-small__item-content
       .case-small__item-client= args.name
       //- .case-small__item-description Платформа бренда и&nbsp;гайдлайны для&nbsp;многопрофильной группы компаний
@@ -34,7 +37,7 @@ mixin cases-small-teaser(args)
 mixin cases-teaser(args)
   a.cases__item(href="")
     .cases__item-bg
-      img.cases__item-preview(src="assets/sections-teaser-01.jpg", alt="")
+      img.cases__item-preview(src="assets/sections-teaser-01.jpg" alt="")
       //- video.cases__item-preview-hover(src="assets/bg.mp4")
       img.cases__item-preview-hover(src="assets/sections-teaser-02.jpg")
     .cases__item-content
@@ -56,16 +59,15 @@ mixin form-row(args)
       textarea(placeholder=args.placeholder, name=args.name, class=`form__textarea validate--${args.validate}`, oninput="this.parentNode.dataset.value = this.value")
     else
       input(type="text", placeholder=args.placeholder, name=args.name, class=`validate--${args.validate} form__${args.validate}`, required).form__input
-      
+
     .form__note
     label.form__label(for=args.name)= args.title
 
-// data-inputmask=args.inputmask,
+//- data-inputmask=args.inputmask,
 
 mixin burger()
   .header__burger 
-    a.header__burger-link(href="#")
-      // type="button"
+    a.header__burger-link(href="#" data-sal="slide-left" data-sal-delay="400" , data-sal-once="true")
       span
     .header__dropdown()
       // uk-dropdown="mode: click; pos: bottom-right; animation: uk-animation-slide-top-small; duration: 1000"
@@ -83,11 +85,11 @@ mixin festivals()
   section.festivals 
     .festivals__grid
       .festivals__logo
-          .header__logo-link
-            img(src="assets/festivals.svg", alt="EnterAgency")
+        .header__logo-link(data-sal="zoom-mini-in" data-sal-delay="200" data-sal-once="true")
+          img(src="assets/festivals.svg" alt="EnterAgency")
       .festivals__title Участвуем в&nbsp;рекламных фестивалях
     .festivals__grid-bottom
-      .festivals__description Участвуем редко, но&nbsp;метко.
+      div(data-sal="slide-up" data-sal-delay="400" data-sal-once="true").festivals__description Участвуем редко, но&nbsp;метко.
         br
         | Получаем награды, радуемся и&nbsp;двигаемся дальше
       .festivals__awards
@@ -97,14 +99,15 @@ mixin festivals()
 
 mixin header-bg()
   .header__bg
-    video(playsinline="playsinline",muted="muted", autoplay="autoplay", loop="loop", src="./assets/bg.mp4") 
-    //- img(src="assets/bg.jpg", alt="")
-    //- .header__bg-balls 
-      .header__bg-ball.header__bg-ball-1
-      .header__bg-ball.header__bg-ball-2
-      .header__bg-ball.header__bg-ball-3
+    //- video(playsinline="playsinline" muted="muted" autoplay="autoplay" loop="loop" src="./assets/bg.mp4") 
+    //- img(src="assets/bg.jpg" alt="")
+    .header__bg-balls 
+      .header__bg-ball.header__bg-ball-1: img(src="assets/ball-01.png" alt="")
+      .header__bg-ball.header__bg-ball-2: img(src="assets/ball-02.png" alt="")
+      .header__bg-ball.header__bg-ball-3: img(src="assets/ball-03.png" alt="")
 
 mixin header-logo(args)
   .header__logo
-    a(href="index.html", class=args.class).header__logo-link
-      img(src=`assets/${args.logo}`, alt="EnterAgency")
+    a(href="index.html", class=args.class, data-sal="zoom-mini-in" data-sal-delay="200" data-sal-once="true").header__logo-link
+      img(src=`assets/${args.logo}`, alt="EnterAgency").header__logo-image
+      img(src=`assets/${args.hover}`, alt="EnterAgency").header__logo-image-hover

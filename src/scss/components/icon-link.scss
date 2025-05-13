@@ -1,0 +1,58 @@
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+
+  &:hover svg {
+    fill: $color-green;
+  }
+  &:hover .icon__default {
+    opacity: 0;
+  }
+  &:hover .icon__hover {
+    opacity: 1;
+  }
+
+  &__icon {
+    position: relative;
+
+    &-default {
+      opacity: 1;
+      scale: 1;
+      transform: scale(1);
+
+      .icon-link:hover & {
+        opacity: 0;
+        scale: 0;
+        transform: scale(0);
+      }
+    }
+
+    &-hover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      scale: 0;
+      transform: scale(0);
+
+      .icon-link:hover & {
+        opacity: 1;
+        scale: 1;
+        transform: scale(1);
+      }
+    }
+    & svg {
+      flex: 0 0 auto;
+      width: 48px;
+      height: 48px;
+      margin-right: 16px;
+      fill: $color-black;
+      transition: var(--transition);
+
+      @media (min-width: $breakpoint-medium) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}

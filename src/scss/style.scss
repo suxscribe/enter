@@ -134,7 +134,11 @@
 // @import '/node_modules/simplebar/dist/simplebar.css'; // Can't import css
 // @import '/node_modules/choices.js/public/assets/styles/choices.min.css';
 
-@import 'aos/src/sass/aos.scss';
+// @import 'aos/src/sass/aos.scss';
+// @import 'vendor/aos.scss';
+
+// @import '~sal.js/src/sal.scss';
+@import 'vendor/sal.scss';
 
 @import 'base/base';
 @import 'base/fonts';
@@ -153,11 +157,14 @@
 @import 'components/festivals';
 @import 'components/form';
 @import 'components/feedback';
-@import 'components/footer';
 @import 'components/case-small';
 @import 'components/cases';
 @import 'components/team';
 @import 'components/contacts';
 @import 'components/case';
+@import 'components/icon-link';
+@import 'vendor/recaptcha.scss';
 
 @import 'pages/index';
+
+@import '~splitting/dist/splitting.css';

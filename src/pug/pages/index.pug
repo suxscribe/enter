@@ -10,24 +10,25 @@ block content
     section.header
       +header-bg()
       .header__top
-        +header-logo({class: '', logo: 'logo.svg'})
-        //- .header__logo
-        //-   a(href="index.html").header__logo-link
-        //-     img(src="assets/logo.svg", alt="EnterAgency")
+        +header-logo({class: '', logo: 'logo.svg', hover:'logo-hover.svg'})
         h1.header__title Создание креативных проектов, графического контента, решений в&nbsp;digital-пространстве, продакшен и&nbsp;постпродакшен.
         +burger()
 
       .header__bottom
-        .header__bottom-logo
-          img(src="assets/bottom-logo.svg", alt="").header__bottom-logo-img
-        .header__presentation
-          a(href="presendation.pdf").header__presentation-link
-            +svg({name: 'pdf'})
+        .header__bottom-logo(data-sal="slide-up" data-sal-delay="400" data-sal-once="true")
+          img(src="assets/bottom-logo.svg" alt="").header__bottom-logo-img
+        .header__presentation(data-sal="slide-up" data-sal-delay="450" data-sal-once="true")
+          a(href="presendation.pdf").header__presentation-link.icon-link
+            span.icon-link__icon
+              +svg({name: 'pdf'}).icon-link__icon-default
+              +svg({name: 'pdf-hover'}).icon-link__icon-hover
             span презентация агентства
-        .header__contact
-          a(href="#feedback", uk-scroll).header__contact-link
+        .header__contact(data-sal="slide-up" data-sal-delay="500" data-sal-once="true")
+          a(href="#feedback", uk-scroll).header__contact-link.icon-link
             span стать клиентом 
-            +svg({name: 'telegram'})
+            span.icon-link__icon
+              +svg({name: 'telegram'}).icon-link__icon-default
+              +svg({name: 'telegram-hover'}).icon-link__icon-hover
     section.sections
       +sections-item()
       +sections-item()
@@ -36,21 +37,22 @@ block content
     section.about
       .about__grid
         .about__logo
-            a(href="").header__logo-link
-              img(src="assets/logo.svg", alt="EnterAgency")
+          a(href="" data-sal="zoom-mini-in" data-sal-delay="200" data-sal-once="true").header__logo-link
+            img(src="assets/logo.svg" alt="EnterAgency")
         .about__title К&nbsp;любому проекту с&nbsp;любовью и&nbsp;вниманием, поэтому нам доверяют
-        .about__description Об агентстве
-        .about__clients
-          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
-          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
-          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
-          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
-          .about__clients-item: img(src="assets/sections-teaser-01.jpg", alt="")
-    section.case-slider
+        div(data-sal="slide-up" data-sal-delay="200" data-sal-once="true").about__description Об агентстве
+        .about__clients(data-sal)
+          .about__clients-item(data-sal="slide-left" data-sal-once="true"): img(src="assets/sections-teaser-01.jpg" alt="")
+          .about__clients-item(data-sal="slide-left" data-sal-once="true"): img(src="assets/sections-teaser-01.jpg" alt="")
+          .about__clients-item(data-sal="slide-left" data-sal-once="true"): img(src="assets/sections-teaser-01.jpg" alt="")
+          .about__clients-item(data-sal="slide-left" data-sal-once="true"): img(src="assets/sections-teaser-01.jpg" alt="")
+          .about__clients-item(data-sal="slide-left" data-sal-once="true"): img(src="assets/sections-teaser-01.jpg" alt="")
+    section.case-slider(data-sal)
       .case-slider__container.swiper-container
         ul.swiper-wrapper
           +cases-slide({name: 'Скасэс'})
-          +cases-slide({name: 'Слайд 2'})
+          +cases-slide({name: 'Скасэс'})
+          +cases-slide({name: 'Слайд 2', image: 'image'})
           +cases-slide({name: 'Слайд 3'})
       .case-slider__pagination.swiper-pagination
       a.case-slider__link.button.button--small(href="") Все кейсы
