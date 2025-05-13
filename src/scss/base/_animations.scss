@@ -1,6 +1,10 @@
 *[uk-scrollspy]:not(.uk-scrollspy-inview):not(.scrollspy__container) {
   opacity: 0;
 }
+// PREVENT FUCKING UIKIT SCROLLSPY BLINKING ON LOAD.
+.scrollspy__container > *:not(.uk-scrollspy-inview) {
+  opacity: 0;
+}
 
 @keyframes moveInLeft {
   0% {
@@ -48,28 +52,40 @@
 
 @keyframes ball1 {
   0% {
-    transform: rotateZ(0deg) translateX(50%) translateZ(0);
+    transform: rotateZ(0deg) translateX(20%) translateZ(0);
   }
   100% {
-    transform: rotateZ(360deg) translateX(50%) translateZ(0);
+    transform: rotateZ(360deg) translateX(20%) translateZ(0);
   }
 }
 @keyframes ball2 {
   0% {
-    transform: translateY(0) translateZ(0);
+    transform: rotateZ(0deg) translateY(0) translateZ(0) translateX(0);
   }
   50% {
-    transform: translateY(70%) translateZ(0);
+    transform: rotateZ(180deg) translateY(70%) translateZ(0) translateX(30%);
   }
   100% {
-    transform: translateY(0) translateZ(0);
+    transform: rotateZ(360deg) translateY(0) translateZ(0) translateX(0);
   }
 }
 @keyframes ball3 {
   0% {
-    transform: rotateZ(0deg) translateX(30%) translateZ(0);
+    transform: rotateZ(0deg) translateX(30%) translateY(0%) translateZ(0);
   }
   100% {
-    transform: rotateZ(-360deg) translateX(30%) translateZ(0);
+    transform: rotateZ(360deg) translateX(30%) translateY(0%) translateZ(0);
+  }
+}
+
+.splitting .char {
+  animation: slide-in 0.7s cubic-bezier(0.3, 0, 0.7, 1) both;
+  animation-delay: calc(50ms * var(--char-index));
+}
+
+@keyframes slide-in {
+  from {
+    transform: scale(0.4) translateY(80%);
+    opacity: 0;
   }
 }

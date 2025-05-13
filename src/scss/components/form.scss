@@ -92,8 +92,7 @@ $input-padding: responsive-value(16px, 40px);
     appearance: none;
 
     // padding-top: responsive-value(40px, 72px);
-    padding: responsive-value(40px, 72px) $input-padding
-      responsive-value(20px, 40px);
+    padding: responsive-value(40px, 72px) $input-padding responsive-value(20px, 40px);
 
     transition: var(--transition);
     transition-property: all;
@@ -163,6 +162,7 @@ $input-padding: responsive-value(16px, 40px);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 
     &-button {
       flex: 0 0 auto;
@@ -171,15 +171,15 @@ $input-padding: responsive-value(16px, 40px);
       border: none;
       background-color: $color-white;
       border-radius: 50%;
-      padding: 8px;
+      padding: 12px;
       cursor: pointer;
       transition: background-color var(--transition);
 
       &:hover {
-        background-color: $color-green;
+        // background-color: $color-green;
 
         & svg {
-          stroke: #fff;
+          stroke: $color-green;
         }
       }
 
@@ -189,7 +189,7 @@ $input-padding: responsive-value(16px, 40px);
       }
     }
     &-name {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
       overflow: hidden;
       text-overflow: ellipsis;
       height: responsive-value(48px, 52px);
@@ -198,8 +198,13 @@ $input-padding: responsive-value(16px, 40px);
       background-color: $color-white;
       padding: 0 20px;
       border-radius: responsive-value(48px, 52px);
-      margin-right: 20px;
       color: $color-gray;
+      cursor: pointer;
+      transition: all var(--transition);
+
+      &:hover {
+        color: rgba($color-green, 0.6);
+      }
     }
   }
 
@@ -261,9 +266,9 @@ $input-padding: responsive-value(16px, 40px);
     align-items: stretch;
 
     &::after,
-    input,
-    textarea,
-    span {
+    & input,
+    & textarea,
+    & > span {
       grid-area: 2 / 1;
       width: 100%;
     }
@@ -281,14 +286,15 @@ $input-padding: responsive-value(16px, 40px);
 
   &::after {
     @include font-h2;
-    padding: responsive-value(40px, 72px) $input-padding
-      responsive-value(84px, 108px);
+    padding: responsive-value(40px, 72px) $input-padding responsive-value(84px, 108px);
 
     content: attr(data-value) ' ';
     visibility: hidden;
     white-space: pre-wrap;
   }
 }
+
+// wordpress contact form 7 tweaks
 
 .wpcf7-response-output {
   opacity: 0;
@@ -308,4 +314,12 @@ $input-padding: responsive-value(16px, 40px);
   .wpcf7 form.invalid & {
     display: none;
   }
+}
+.wpcf7-not-valid-tip {
+  display: none !important;
+}
+
+.wpcf7 .form-submitting .ajax-loader {
+  // cf7 loader circle
+  display: none;
 }

@@ -33,15 +33,19 @@ export const validateForms = () => {
         inputPhone.addEventListener('input', () => {
           console.log('input');
 
-          if (checkIfEmpty(inputPhone)) return;
-          if (checkIfOnlyDigits(inputPhone)) return;
-          return true;
+          // if (checkIfEmpty(inputPhone)) return;
+          // console.log(checkIfOnlyDigits(inputPhone));
+
+          // if (checkIfOnlyDigits(inputPhone)) return;
+          // return true;
         });
 
         inputPhone.addEventListener('focusout', () => {
+          console.log('focus out phone');
+
           if (checkIfEmpty(inputPhone)) return;
           if (checkIfOnlyDigits(inputPhone)) return;
-          return true;
+          // return true;
         });
       }
     });
@@ -73,14 +77,14 @@ export const validateForms = () => {
       if (inputEmail) {
         if (checkIfEmpty(inputEmail)) return;
         if (checkIfEmail(inputEmail)) return;
-        return true;
+        // return true;
       }
 
       const inputPhone = form.querySelector('.validate--phone');
       if (inputPhone) {
         if (checkIfEmpty(inputPhone)) return;
         if (checkIfOnlyDigits(inputPhone)) return;
-        return true;
+        // return true;
       }
     };
 
@@ -99,20 +103,26 @@ export const validateForms = () => {
       return false;
     };
 
+    const getInputNoteElement = (field) => {
+      return field.closest('.form__row').querySelector('.form__note');
+    };
+
     const setInvalid = (field, message) => {
       // toggle invalid class and show invalid message
       field.classList.add('invalid');
-      if (field.nextElementSibling) {
-        // field.nextElementSibling.innerHTML = message; // dont show message
-        field.nextElementSibling.className = 'form__note form__note--red';
+      const inputNoteElement = getInputNoteElement(field);
+      if (inputNoteElement) {
+        inputNoteElement.innerHTML = message;
+        inputNoteElement.className = 'form__note form__note--red';
       }
     };
     const setValid = (field) => {
       field.classList.remove('invalid');
-      if (field.nextElementSibling) {
-        field.nextElementSibling.innerHTML = '';
+      const inputNoteElement = getInputNoteElement(field);
+      if (inputNoteElement) {
+        inputNoteElement.innerHTML = '';
 
-        field.nextElementSibling.className = 'form__note';
+        inputNoteElement.className = 'form__note';
       }
     };
 
@@ -126,15 +136,20 @@ export const validateForms = () => {
     };
     const checkIfOnlyDigits = (field) => {
       // check for phone number format match
-      if (/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g.test(field.value)) {
+      if (
+        /^[\+]?[\s]?[0-9]{1}[\s][0-9]{3}[\s]?[0-9]{3}[-\s]?[0-9]{2}[-\s]?[0-9]{2}$/im.test(
+          field.value
+        )
+      ) {
+        console.log('check digits field valid');
+
         setValid(field);
 
         return true;
       } else {
-        setInvalid(
-          field,
-          'Пожалуйста введите номер телефона в формате +7 XXX XXX XX XX'
-        );
+        console.log('check digits field invalid');
+
+        setInvalid(field, 'Пожалуйста введите номер телефона в формате +7 XXX XXX XX XX');
       }
     };
     const checkIfEmail = (field) => {

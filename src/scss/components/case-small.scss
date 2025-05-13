@@ -17,6 +17,7 @@
     border-radius: $border-radius;
     overflow: hidden;
     margin-bottom: 8px;
+    transform: translateZ(0); // safari fix kinda
 
     &-content {
       padding: $block-padding;

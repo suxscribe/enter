@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production && prettier --parser html --write dist/*.html",
     "watch": "webpack --mode development --watch",
-    "start": "webpack serve --mode development --env development --open-app-name firefox"
+    "start": "webpack serve --mode development --env development --open-app-name firefox",
+    "deploy-prod": "pnpm run build && node deploy.js"
   },
   "keywords": [],
   "author": "Sergey Birukoff",
@@ -32,6 +33,7 @@
     "css-loader": "^6.5.1",
     "cssnano": "^5.0.13",
     "file-loader": "^6.2.0",
+    "ftp-deploy": "^2.4.7",
     "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.0.1",
