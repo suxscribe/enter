@@ -319,7 +319,20 @@ $input-padding: responsive-value(16px, 40px);
   display: none !important;
 }
 
-.wpcf7 .form-submitting .ajax-loader {
-  // cf7 loader circle
-  display: none;
+.wpcf7 {
+  & .ajax-loader {
+    top: 16px;
+    left: 16px;
+    position: absolute;
+    margin: 0;
+  }
+
+  &.form-submitting .ajax-loader {
+    // cf7 loader circle
+    display: none;
+  }
+
+  & .screen-reader-response {
+    display: none;
+  }
 }
