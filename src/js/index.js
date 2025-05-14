@@ -4,10 +4,10 @@ import Splitting from 'splitting';
 
 import { variables } from './components/variables';
 
-import { formFileInput, burgerToggle } from './components/helpers';
 import { initSections } from './components/section';
 import { casesSlider } from './components/swiper';
-import { validateForms } from './components/forms';
+import { validateForms, formFileInput } from './components/forms';
+import { burgerToggle } from './components/header';
 import { casesItemHover } from './components/cases-item-hover.js';
 import followCursor from './components/follow-cursor';
 
@@ -72,6 +72,6 @@ const splitHeaderTitleResults = Splitting({
 let splitHeaderTimeline = new gsap.timeline();
 
 splitHeaderTitleResults[0].lines.forEach((line) => {
-  splitHeaderTimeline.from(line, { duration: 0.7, y: 40, opacity: 0 }, '=-0.6');
+  splitHeaderTimeline.from(line, { duration: 0.3, y: 40, opacity: 0 }, '=-0.2');
 });
 splitHeaderTimeline.shiftChildren(1); // shift animation start to 1 second (pause at start)

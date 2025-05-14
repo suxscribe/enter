@@ -166,3 +166,35 @@ export const validateForms = () => {
     };
   }
 };
+
+export const formFileInput = () => {
+  const realFileBtn = document.getElementById('real-file');
+  const customBtn = document.getElementById('custom-button');
+  const customTxt = document.getElementById('custom-text');
+
+  // Add null checks for robustness, similar to the linter warnings we are ignoring for now
+  if (customBtn) {
+    customBtn.addEventListener('click', function() {
+      if (realFileBtn) realFileBtn.click();
+    });
+  }
+  if (customTxt) {
+    customTxt.addEventListener('click', function() {
+      if (realFileBtn) realFileBtn.click();
+    });
+  }
+
+  if (realFileBtn) {
+    realFileBtn.addEventListener('change', function() {
+      // Ensure realFileBtn is an HTMLInputElement for the 'value' property
+      // const inputElement = realFileBtn as HTMLInputElement; // Removed this TypeScript specific line
+      // We rely on realFileBtn actually being an input element here.
+      if (realFileBtn.value && customTxt) {
+        // Assuming realFileBtn has a value property
+        customTxt.innerHTML = realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+      } else if (customTxt) {
+        customTxt.innerHTML = 'No file chosen, yet.';
+      }
+    });
+  }
+};
