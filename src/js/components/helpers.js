@@ -1,22 +1,3 @@
-export const teaserHover = () => {
-  const elements = document.querySelectorAll('.sections__item');
-
-  if (elements.length > 0) {
-    elements.forEach((element) => {
-      const bg = element.querySelector('.sections__item-bg');
-
-      element.addEventListener('mouseenter', () => {
-        // console.log('hover');
-
-        bg.style.backgroundColor = bg.dataset.hover;
-      });
-      element.addEventListener('mouseleave', () => {
-        bg.style.backgroundColor = null;
-      });
-    });
-  }
-};
-
 export const formFileInput = () => {
   const realFileBtn = document.getElementById('real-file');
   const customBtn = document.getElementById('custom-button');

@@ -1,15 +1,11 @@
-// import UIkit from 'uikit';
-// import UIkit from 'uikit/dist/js/uikit-core';
-// import Icons from 'uikit/dist/js/uikit-icons';
-
-// import sal from 'sal.js/src/sal.js';
 import gsap from 'gsap';
 import sal from './vendor/sal.js';
 import Splitting from 'splitting';
 
 import { variables } from './components/variables';
 
-import { teaserHover, formFileInput, burgerToggle } from './components/helpers';
+import { formFileInput, burgerToggle } from './components/helpers';
+import { initSections } from './components/section';
 import { casesSlider } from './components/swiper';
 import { validateForms } from './components/forms';
 import { casesItemHover } from './components/cases-item-hover.js';
@@ -21,6 +17,7 @@ import followCursor from './components/follow-cursor';
 function requireAll(r) {
   r.keys().forEach(r);
 }
+requireAll(require.context('../svg/', true, /\.svg$/));
 
 sal({
   once: false,
@@ -30,11 +27,9 @@ sal({
 
 Splitting();
 
-requireAll(require.context('../svg/', true, /\.svg$/));
-
 // DOCUMENT READY
 // COMMON SCRIPTS
-teaserHover();
+initSections();
 casesSlider();
 burgerToggle();
 // INITIALIZE SWIPERS
@@ -47,10 +42,6 @@ validateForms();
 formFileInput();
 
 // HOVER
-const sectionItemsHover = new followCursor({
-  selector: '.sections__item-bg',
-  selectorInner: '.sections__item-bg-img',
-});
 const sectionHeaderHover = new followCursor({
   selector: '.header',
   selectorInner: '.header__bg-ball img',
