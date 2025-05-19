@@ -300,6 +300,11 @@
     margin: 0;
     grid-column: 1 / -1;
 
+    opacity: 0; // Prevent header FOUC
+    &.splitting {
+      opacity: 1;
+    }
+
     @media (min-width: $breakpoint-medium) {
       grid-column: 3 / 7;
     }

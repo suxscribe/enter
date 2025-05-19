@@ -2,6 +2,8 @@
   display: inline-flex;
   align-items: center;
 
+  transform: translateZ(0);
+
   &:hover svg {
     fill: $color-green;
   }
