@@ -1,11 +1,3 @@
-*[uk-scrollspy]:not(.uk-scrollspy-inview):not(.scrollspy__container) {
-  opacity: 0;
-}
-// PREVENT FUCKING UIKIT SCROLLSPY BLINKING ON LOAD.
-.scrollspy__container > *:not(.uk-scrollspy-inview) {
-  opacity: 0;
-}
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;

@@ -341,10 +341,6 @@
       grid-row: 1;
     }
 
-    html.uk-modal-page body.page-main header.panel {
-      z-index: auto; /* fix z-index for navbar-toggle */
-    }
-
     & > * {
       pointer-events: all;
     }
@@ -386,7 +382,6 @@
 
       &.active,
       &[aria-expanded='true'] {
-        // .uk-offcanvas-page &, &.active
         z-index: 1030;
         opacity: 0.4;
 
@@ -466,9 +461,6 @@
       grid-column-start: 2;
       grid-column-end: 3;
     }
-
-    &-link {
-    }
   }
 
   &__contact {
@@ -543,8 +535,7 @@
       width: 25%;
     }
 
-    &.active,
-    &.uk-open {
+    &.active {
       max-height: responsive-value(480px, 700px);
       padding: $block-padding $block-padding;
     }

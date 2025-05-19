@@ -34,7 +34,6 @@ h4 {
 }
 
 h1,
-.uk-h1,
 .h1 {
   @include font-h1;
   margin-bottom: $block-margin;
@@ -45,14 +44,12 @@ h1,
 }
 
 h2,
-.uk-h2,
 .h2 {
   @include font-h2;
   margin-bottom: $block-margin;
 }
 
 h3,
-.uk-h3,
 .h3 {
   @include font-h3;
 
@@ -60,7 +57,6 @@ h3,
 }
 
 h4,
-.uk-h4,
 .h4 {
   @include font-body;
   font-weight: bold;
