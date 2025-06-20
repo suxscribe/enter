@@ -101,13 +101,5 @@ export let casesSlider = () => {
       },
       keyboard: true,
     });
-
-    // console.log(swiperSection1.slides);
-
-    // document.querySelectorAll('.case-slider__item').forEach((slide, index) => {
-    //   document.querySelectorAll(
-    //     '.case-slider__pagination .swiper-pagination-bullet'
-    //   )[index].style.backgroundImage = 'url("' + slide.dataset.preview + '")';
-    // });
   }
 };
